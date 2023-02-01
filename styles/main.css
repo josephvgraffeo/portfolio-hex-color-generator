@@ -11,15 +11,24 @@ body {
 }
 
 #displayBox {
-    background-color: #f4f5f630;
-    padding: 25px;
+    background-color: #f4f5f634;
+    padding: 30px;
     border-radius: 14px;
+    align-items: center;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 header > h1 {
     font-size: 4rem;
     filter: drop-shadow(0 0 1.1rem #0000008c);
     font-family: monospace;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 button {
@@ -29,4 +38,7 @@ button {
     border-radius: 12px;
     border: 3px solid #3333332b;
     font-family: monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
