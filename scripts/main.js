@@ -1,17 +1,35 @@
 function getRandomColor() {
-    const hexColorCharacter = ['0', "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
-    let color = "#"
-    for (let i=0; i < 6; i++) {
-        color += hexColorCharacter[Math.floor(Math.random() * hexColorCharacter.length)]
+    const hexList = ['0','1','2','3','4','5','6','7','8','9','0', 'A','B','C','D','E','F'];
+
+    let randomColor = "#";
+    let randIndex = "0";
+    
+    for (let i=0; i<6; i++) {
+        randIndex = Math.floor(Math.random() * hexList.length);
+        randomColor += hexList[randIndex];
     }
-    return color;
+
+    return randomColor;
 }
 
-function renderRandomColor() {
-    const currentRandomColor = getRandomColor()
-    document.getElementById("htmlBody").style.backgroundColor=currentRandomColor;
-    document.getElementById("htmlH1").innerHTML = currentRandomColor;
-    console.log(currentRandomColor);
+
+function getRandomBackground() {
+    const totalBg = 14;
+    const randomBackground = `bg${Math.floor(Math.random() * totalBg)}.webp`;
+
+    return randomBackground;
 }
 
-renderRandomColor();
+
+function getRandomSet() {
+    const color= getRandomColor();
+    const background = getRandomBackground();
+
+    document.querySelector("body").style.backgroundColor=color;
+    document.querySelector("h1").innerHTML = color;
+    document.title=`Hex Color - ${color}`;
+
+    document.querySelector("body").style.backgroundImage=`url('../images/${background}')`;
+
+    console.log('Hex:',color,'Background:',background);
+}

@@ -1,64 +1,94 @@
-/* normalize */
-*, *::before, *::after {margin: 0; padding: 0; box-sizing: inherit;}
+/* Normalize */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: inherit; }
+
+html { scroll-behavior: smooth; }
 
 body {
     background-color: #f4f5f6;
+    background-image: url(../images/bg1.webp);
+    background-position: center;
+    background-attachment: fixed;
+
     height: 100vh;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
     justify-content: center;
+    transition-duration: 1.3s;
+    transition-timing-function: cubic-bezier(.97,.15,.82,.75);
+    transition-delay: 0.15s;
 }
 
-#displayBox {
-    background-color: #f4f5f617;
+header, nav, main, footer { text-align: center;}
+
+/* Fonts */
+h1 { font-family: monospace }
+p { font-family: monospace }
+
+
+#display-box {
+    width: 60vw;
+    max-width: 400px;
+    background-color: rgba(244, 245, 246, 0.567);
     padding: 30px;
     border-radius: 14px;
-    align-items: center;
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    top: -20vh;
+    filter: drop-shadow(0 0 2rem #140101f8);
+    border: 5px solid rgba(255, 255, 255, 0.301)
 }
 
+/* Header */
 header > h1 {
-    font-size: 4rem;
-    filter: drop-shadow(0 0 1.1rem #0000008c);
+    font-size: clamp(4rem, 6vh, 8rem);
+}
+
+/* Nav */
+nav > button {
     font-family: monospace;
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    justify-content: center;
-}
-
-#buttonContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-}
-
-button {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    padding: 8px;
-    border-radius: 12px;
-    border: 3px solid #3333332b;
-    font-family: monospace;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: row;
-    margin-inline: 20px;
+    background-color: rgba(236, 244, 244, 0.344);
+    padding: 10px 40px;
+    border-radius: 14px;
+    border: 2px solid #f4f5f646;
+    margin-top: 5px;
 }
 
-button:hover {
-    background-color: rgba(113, 109, 109, 0.35);
-    border-color: rgba(113, 109, 109, 0.35);
+nav > button, 
+main > p {
+    cursor: pointer;
+    transform: scale(1.0);
+    transition: transform 0.31s ease-in-out;
 }
 
-button:active {
-    background-color: rgba(79, 76, 76, 0.85);
-    border-color: rgba(79, 76, 76, 0.85);
+main > p a { 
+    color: #454545;
+    text-decoration: none;
 }
+
+button:hover,
+main > p:hover { 
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 2rem #00eeffab);
+}
+
+/* Main */
+main { margin-top: 2vh; }
+
+/* Footer */
+footer {
+    position: relative;
+    top: 3.1vh;
+}
+
+footer > p a:link,
+footer > p a:visited { 
+    color: rgba(103, 96, 96, 0.883);
+    transition: 1.2s; 
+}
+
+footer > p a:hover { 
+    color: #00eeffab;
+    filter: drop-shadow(0 0 7px #00eeffab);
+ }
